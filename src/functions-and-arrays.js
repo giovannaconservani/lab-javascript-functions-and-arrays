@@ -23,19 +23,18 @@ words.sort(function(a, b) { return b.length - a.length;});
 
 
 
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(num) {
-  let sum = num.reduce(function(accumulator, currentNumber) {
-    return accumulator + currentNumber;
-  })
-  if (num = '') {return 0}
-  
-  console.log(sum);
-}
+function sumNumbers(numbers) {
+  let soma = 0;
 
+  for (i = 0; i < numbers.length; i++) {
+    soma += numbers[i];
+  }
+
+  return soma;
+}
 
 
 // Iteration #3.1 Bonus:
@@ -49,40 +48,47 @@ function sum() {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-  const avg = numbersAvg.reduce(function(accumulator, currentNumber, index) {
-    if (index === numbersAvg.length - 1) {
-      accumulator += currentNumber;
-      
-      return accumulator/numbersAvg.length
-    }
-    
-    return accumulator + currentNumber;
-  })
-  
-console.log(avg)}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length !== 0) {
+    const avg = numbersAvg.reduce((acumulator, currentNumber, index) => {
+      if (index === numbersAvg.length - 1) {
+        acumulator += currentNumber;
+        return acumulator / numbersAvg.length;
+      }
+      return acumulator + currentNumber;
+    });
+
+    return parseInt(avg);
+  } else {
+    return null;
+  }
+}
 
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {
-let wordsArrlength = wordsArr.map(function(inNumber) {
-    return wordsArr.length
-  });
-
-  const avg = wordsArrlength.reduce(function(accumulator, currentNumber, index) {
-    if (index === wordsArrlength.length - 1) {
-      accumulator += currentNumber;
-      
-      return accumulator/wordsArrlength.length
+function averageWordLength(wordsArr) {
+  if (wordsArr.length !== 0) {
+    const arr = [];
+    for (i = 0; i < wordsArr.length; i++) {
+      arr.push(wordsArr[i].length);
     }
-    
-    return accumulator + currentNumber;
-  })
-  
-console.log(avg)};
+
+    const media1 = arr.reduce((accumulator, currentNumber, index) => {
+      if (index === arr.length - 1) {
+        accumulator += currentNumber;
+        return accumulator / arr.length;
+      }
+      return accumulator + currentNumber;
+    });
+
+    return parseInt(media1);
+  } else {
+    return null;
+  }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -117,15 +123,19 @@ function uniquifyArray() {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(array, word){
-  let found = false
-   for(i=0;i<array.length;i++){
-     if(array[i] === word){
-     found = true
-     }
-   }
-   return found
- }
+function doesWordExist(wordsFind, nome) {
+  if (wordsFind.length !== 0) {
+    for (i = 0; i < wordsFind.length; i++) {
+      if (wordsFind[i] === nome) {
+        return true;
+      }
+    }
+
+    return false;
+  } else {
+    return null;
+  }
+}
 
 
 
@@ -145,15 +155,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(array,word) { 
-  let count = 0;
-  for(i=0;i<array.length;i++){
-     if(array[i] === word){
-    count++}
-   }
-   return count;
- }
+function howManyTimes(wordsCount, nome) {
+  if (wordsCount.length !== 0) {
+    let count = 0;
+    for (i = 0; i < wordsCount.length; i++) {
+      if (wordsCount[i] === nome) {
+        count++;
+      }
+    }
 
+    return count;
+  } else {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
